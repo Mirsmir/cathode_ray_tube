@@ -50,8 +50,8 @@ group_sounds = {
     "enter_space": "enter_space.mp3",
     "const": "const.wav",
     "backspace": "backspace.mp3",
-    "nums": "nums.wav",
-    "cnst": "cnst.wav"
+    "nums": "consts.wav",
+    "cnst": "nums.wav"
 
 }
 
