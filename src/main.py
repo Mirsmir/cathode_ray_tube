@@ -4,8 +4,53 @@ from src import serialComm
 import pygame
 import threading 
 import time
+from src.keySound import keySoundController
 
 wpm = 0
+
+
+def classify_key(key):
+
+    if key == keyboard.Key.enter:
+        return "enter_space"
+
+    if key == keyboard.Key.backspace:
+        return "backspace"
+
+    try:
+        k = key.char.lower()
+    except AttributeError:
+        return None   
+
+    if k in {'[', ']', '(', ')', '{', '}', '<', '>'}:
+        return "brackets"
+
+    if k in {'a', 'o', 'u', 'e', 'i', 'y'}:
+        return "vowel"
+
+    if k in {
+        'q','w','r','t','p','s','d','f','g','h','j','k','l',
+        'z','x','c','v','b','n','m'
+    }:
+        return "const"
+    
+    if k in {
+		'1','2','3','4','5','6','7','8','9','0'
+	}:
+        return "nums"
+
+    return None
+
+
+group_sounds = {
+    "vowel": "vowel.wav",
+    "brackets": "brackets.mp3",
+    "enter_space": "enter_space.mp3",
+    "const": "const.wav",
+    "backspace": "backspace.mp3",
+    "nums": "nums.wav"
+
+}
 
 def start_wpm_music_controller(
     synth_mp3,
@@ -59,12 +104,19 @@ if __name__ == "__main__":
 	arduino = serialComm.connect_arduino()	
 	typingSpeed.start_listener()
  
+	key_controller = keySoundController(
+        classifier=classify_key,
+        group_sounds=group_sounds
+    
+    )
+ 
 	start_wpm_music_controller(
         "synth.mp3",
         "fastSynth.mp3",
         wpm_threshold=50
     )
  
+	key_controller.start()
 	poll_wpm(1.0)
 	# every 1000mslsdef main():
     # global wpm
