@@ -23,22 +23,19 @@ void setup()
 
   while (!Serial)
   {
-    ; // wait for serial port to be ready (for boards with native USB)
+    ; // wait for serial port to ready UPPPP (for boards with native USB)
   }
-  // Defining the pins as OUTPUT
   pinMode(redPin, OUTPUT);
   pinMode(greenPin, OUTPUT);
   pinMode(bluePin, OUTPUT);
 
   // pinMode(buttonPin, INPUT_PULLUP);
 
-  // Start with the configured base color
   setColor(baseR, baseG, baseB);
 }
 
 void loop()
 {
-  // Fade from the base color to a darker version, then back
   // const int darkPercent = 30; // darker color = darkPercent% of base (0-100)
   // int darkR = baseR * darkPercent / 100;
   // int darkG = baseG * darkPercent / 100;
@@ -46,11 +43,9 @@ void loop()
 
   const int durationMs = 10000; // fade duration in milliseconds
 
-  // // Fade to darker
   // fadeToColor(baseR, baseG, baseB, darkR, darkG, darkB, durationMs);
   // delay(250);
 
-  // // Fade back to base
   // fadeToColor(darkR, darkG, darkB, baseR, baseG, baseB, durationMs);
   // delay(1000);
   ambientMode(baseR, baseG, baseB, durationMs);

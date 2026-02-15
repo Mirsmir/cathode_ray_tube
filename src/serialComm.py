@@ -6,5 +6,8 @@ def connect_arduino(port='COM7', baudrate=9600): #p sure its com3???
     time.sleep(2)
     return arduino
 
+def send_wmp_signal(arduino, wpm):
+    msg = f"WPM:{wpm:.1f}\n"
+    arduino.write(msg.encode('utf-8'))
 
 
