@@ -9,7 +9,7 @@ int greenPin = 10;
 int bluePin = 9;
 
 // Base (initial) color — change these to set the starting color
-int baseR = 0;
+int baseR = 255;
 int baseG = 0;
 int baseB = 255;
 
@@ -90,12 +90,12 @@ void fadeToColor(int r1, int g1, int b1, int r2, int g2, int b2, int duration)
 
 void ambientMode(int r1, int g1, int b1, int duration) // first set is original
 {
-  int darkerR = r1 * 0.1;
+  int darkerR = r1 * 0.2;
   int darkerG = g1 * 0.1;
-  int darkerB = b1 * 0.1;
+  int darkerB = b1 * 0.4;
 
   fadeToColor(r1, g1, b1, darkerR, darkerG, darkerB, duration); // first we need to fade original color to darker
-  delay(1000);
+  delay(700);
   fadeToColor(darkerR, darkerG, darkerB, r1, g1, b1, duration); // darker color back to original
-  delay(1000);
+  delay(700);
 }
