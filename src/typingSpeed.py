@@ -75,5 +75,5 @@ def stop_listener():
         _listener.stop()
         _listener = None
 
-def _is_running():
-    return _running;
+def is_running():
+    return _running
