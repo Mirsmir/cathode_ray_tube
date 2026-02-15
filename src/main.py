@@ -29,10 +29,12 @@ def classify_key(key):
         return "vowel"
 
     if k in {
-        'q','w','r','t','p','s','d','f','g','h','j','k','l',
-        'z','x','c','v','b','n','m'
+        'q','w','r','t','p','s','d','f'
     }:
         return "const"
+    
+    if k in {'g','h','j','k','l','z','x','c','v','b','n','m'}:
+        return "cnst"
     
     if k in {
 		'1','2','3','4','5','6','7','8','9','0'
@@ -48,7 +50,8 @@ group_sounds = {
     "enter_space": "enter_space.mp3",
     "const": "const.wav",
     "backspace": "backspace.mp3",
-    "nums": "nums.wav"
+    "nums": "nums.wav",
+    "cnst": "cnst.wav"
 
 }
 
