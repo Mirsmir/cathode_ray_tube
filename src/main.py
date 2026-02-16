@@ -16,6 +16,19 @@ def classify_key(key):
 
     if key == keyboard.Key.backspace:
         return "backspace"
+    
+    if key == keyboard.Key.down:
+        return "down"
+    
+    if key == keyboard.Key.down:
+        return "up"
+    
+    if key == keyboard.Key.down:
+        return "right"
+    
+    if key == keyboard.Key.down:
+        return "left"
+    
 
     try:
         k = key.char.lower()
@@ -27,6 +40,9 @@ def classify_key(key):
 
     if k in {'a', 'o', 'u', 'e', 'i', 'y'}:
         return "vowel"
+    
+    if k in {'a','e','i'}:
+        return "some_vowels"
 
     if k in {
         'q','w','r','t','p','s','d','f'
@@ -35,6 +51,9 @@ def classify_key(key):
     
     if k in {'g','h','j','k','l','z','x','c','v','b','n','m'}:
         return "cnst"
+    
+    if k in {'`','~','!','@','#','$','%','^','&','*','-','_','+','=','|','\\',';',':','"','\''}:
+            return "special"
     
     if k in {
 		'1','2','3','4','5','6','7','8','9','0'
@@ -51,7 +70,13 @@ group_sounds = {
     "const": "const.wav",
     "backspace": "backspace.mp3",
     "nums": "consts.wav",
-    "cnst": "nums.wav"
+    "cnst": "nums.wav",
+    "some_vowels": "somevowels2.wav",
+    "special": "somevowels.wav"
+    # "up": "up.wav",
+    # "down": "down.wav",
+    # "left": "left.wav",
+    # "right": "right.wav"
 
 }
 
